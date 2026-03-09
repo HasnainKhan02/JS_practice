@@ -1,0 +1,827 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+nav {
+    height: 70px;
+    /* border: 2px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.logo {
+    font-size: 2rem;
+    font-family: "Playfair Display", serif;
+}
+
+.nav-links ul {
+    display: flex;
+    gap: 12px;
+    list-style: none;
+}
+
+.nav-links ul li {
+    position: relative;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+/* underline */
+.nav-links ul li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    width: 0%;
+    height: 2px;
+    background: black;
+    transition: width 0.4s ease;
+}
+
+.nav-links ul li:hover::after {
+    width: 100%;
+}
+
+.cart {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.heroSection {
+    height: 550px;
+    width: 100%;
+    /* border: 1px solid black; */
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.hero-banner {
+    height: 500px;
+    background-image: url(images/cleaned_image.jpg);
+    background-size: cover;
+}
+
+.hero-text {
+    height: 250px;
+    width: auto;
+    /* border: 1px solid black; */
+    margin: 0px 155px;
+    position: absolute;
+    margin-top: 116px;
+}
+
+.shopBtn {
+    padding: 130px 0px;
+}
+
+.shopBtn button {
+    padding: 8px 19px;
+    /* border: none; */
+    font-size: 18px;
+}
+
+.shopBtn button:hover {
+    background-color: #000;
+    transition: all 0.3s ease-in-out;
+    color: #fff;
+    cursor: pointer;
+}
+
+.heroHading h2 {
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.heroHading p {
+    font-weight: 400;
+
+}
+
+.Products_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 45px;
+}
+
+.Products_section h2 {
+    /* text-decoration: underline; */
+}
+
+.products {
+    margin: auto;
+    width: 80%;
+    /* border: 1px solid black; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 20px;
+    gap: 20px;
+}
+
+.box {
+    /* border: 1px solid black; */
+    height: 300px;
+    width: 250px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.box img:hover {
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.box1-image img {
+    object-fit: cover;
+    height: 200px;
+    width: 200px;
+}
+
+.box1-title,
+.box2-title,
+.box3-title,
+.box4-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    border-top: 1px solid #999;
+    padding: 21px 0px;
+}
+
+.box .addToCart {
+    cursor: pointer;
+}
+
+.box2-image img {
+    object-fit: cover;
+    height: 200px;
+    width: 200px;
+}
+
+.box3-image img {
+    object-fit: cover;
+    height: 200px;
+    width: 200px;
+}
+
+.box4-image img {
+    object-fit: cover;
+    height: 200px;
+    width: 200px;
+}
+
+/* Right Side Cart Design */
+
+.Cart-Section {
+    height: 100vh;
+    width: 420px;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    right: -450px;
+    background-color: #fff;
+    z-index: 100;
+    transition: 0.3s ease-in-out;
+    border-radius: 12px 0 0 12px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.Cart-Section.active {
+    right: 0;
+}
+
+.cart-logo {
+    position: relative;
+    /* parent ko relative karo */
+}
+
+.cart-logo span {
+    position: absolute;
+    /* ab badge parent ke relative position me rahega */
+    top: -8px;
+    right: -8px;
+    background: black;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+}
+
+/* Heading */
+.Cart-Section h2 {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* CLOSE BUTTON */
+.remove-item {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* CART ITEMS AREA (SCROLLABLE) */
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+/* CART BOX */
+.cart-box {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.left-side {
+    display: flex;
+    gap: 12px;
+}
+
+.cart-box img {
+    height: 80px;
+    width: 90px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.cart-product-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cart-bottom {
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    background: white;
+}
+
+
+.cart-buttons button {
+    padding: 2px 8px;
+    cursor: pointer;
+}
+
+/* TOTAL + BUTTON AREA */
+.cart-total {
+    text-align: center;
+    font-size: 20px;
+    margin: 15px 0 10px;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+}
+
+/* BUY NOW BUTTON */
+#buyNow {
+    width: 100%;
+    padding: 12px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    /* display: none; hidden until items added */
+}
+
+.cart-items {
+    flex: 1;
+    /* takes remaining space */
+    overflow-y: auto;
+
+    /* scroll instead of push */
+}
+
+/* LOCK BOTTOM AREA */
+.cart-bottom {
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    background: white;
+
+
+}
+
+#buyNow:hover {
+    background-color: #333;
+}
+
+.cart-buttons button:hover {
+    background-color: #333;
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.cart-buttons button {
+    padding: 2px 8px;
+    cursor: pointer;
+    border: none;
+    /* border: 1px solid #999; */
+
+}
+
+.cart-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    /* flex-direction: column; */
+    align-items: center;
+    /* padding: 10px 0; */
+
+}
+
+/*righgt side cart design end here */
+.right-side {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    /* gap: 12px; */
+}
+
+.remove-bin {
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+/* ===============================
+   Tablets (max-width: 992px)
+=================================*/
+@media (max-width: 992px) {
+
+    nav {
+        padding: 0 20px;
+    }
+
+    .hero-text {
+        margin: 0 60px;
+    }
+
+    .products {
+        width: 90%;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .box {
+        width: 100%;
+    }
+
+    .Cart-Section {
+        width: 380px;
+    }
+}
+
+
+/* ===============================
+   Small Tablets (max-width: 768px)
+=================================*/
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0;
+        gap: 10px;
+        position: relative;
+    }
+
+    .cart-logo {
+        position: relative;
+        /* parent ko relative karo */
+    }
+
+    .cart-logo span {
+        position: absolute;
+        /* ab badge parent ke relative position me rahega */
+        top: -8px;
+        right: -8px;
+        background: black;
+        color: white;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-size: 12px;
+    }
+
+    .nav-links ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .heroSection {
+        height: auto;
+    }
+
+    .hero-banner {
+        height: 400px;
+        background-position: center;
+    }
+
+    .hero-text {
+        position: static;
+        margin: 30px;
+        text-align: center;
+    }
+
+    .shopBtn {
+        padding: 40px 0px;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .Cart-Section {
+        width: 320px;
+        font-size: 10px;
+    }
+
+    #cart-count {
+        top: 269px;
+        right: 230px;
+    }
+}
+
+
+/* ===============================
+   Mobile Devices (max-width: 576px)
+=================================*/
+@media (max-width: 576px) {
+    .cart-logo {
+        position: relative;
+        /* parent ko relative karo */
+    }
+
+    .right-side {
+        /* height: 20px;    */
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding: 0% 10px;
+        /* gap: 12px; */
+
+    }
+
+    .cart-logo span {
+        position: absolute;
+        /* ab badge parent ke relative position me rahega */
+        top: -8px;
+        right: -8px;
+        background: black;
+        color: white;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-size: 12px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .nav-links ul li {
+        padding: 8px;
+    }
+
+
+    .cart-logo {
+        position: relative;
+        /* parent ko relative karo */
+    }
+
+    .cart-logo span {
+        position: absolute;
+        /* ab badge parent ke relative position me rahega */
+        top: -8px;
+        right: -8px;
+        background: black;
+        color: white;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-size: 12px;
+    }
+
+    .heroHading h2 {
+        font-size: 2rem;
+    }
+
+    .heroHading p {
+        font-size: 14px;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .box {
+        height: auto;
+        padding: 15px 0;
+    }
+
+    .box img {
+        width: 100%;
+        height: auto;
+    }
+
+    .Cart-Section {
+        width: 100%;
+    }
+
+    .cart-box {
+        /* flex-direction: column; */
+        height: auto;
+        gap: 10px;
+    }
+
+    .cart-buttons {
+        border-left: none;
+        /* border-top: 1px solid #999; */
+        padding: 10px 0;
+        justify-content: center;
+    }
+
+    .right-side {
+        border-left: 1px solid #999;
+    }
+
+    .checkOut-box {
+        display: flex;
+
+    }
+}
+
+
+
+
+
+/* CHECKOUT CSS */
+
+.checkOut-box {
+    position: fixed;
+    top: 5%;
+    left: -500%;
+    margin: auto;
+    border: 1px solid #999;
+    border-radius: 12px;
+    width: 70%;
+    padding: 50px 20px;
+    background-color: #fff;
+    z-index: 299;
+    display: flex;
+    gap: 30px;
+    justify-content: space-around;
+    transition: 0.5s ease-in-out;
+
+}
+
+.checkOut-box.active {
+    left: 16%;
+}
+
+form {
+    max-height: 400px;
+    /* max-width: 399px; */
+    border-right: 1px solid #999;
+    padding: 0px 18px;
+
+}
+
+form input {
+    border: 1px solid #999;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.name-box {
+    display: flex;
+    padding: 15px 0px;
+    gap: 30px;
+    height: 100px;
+}
+
+.name-box input {
+    padding: 6px 0px;
+}
+
+.address {
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.address input {
+    padding: 6px 0px;
+}
+
+.city-state-postal {
+    height: 118px;
+    margin-top: 31px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 14px 1px;
+    gap: 16px;
+}
+
+.productDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+}
+
+.productDetails p {
+    color: #999;
+}
+
+.subtotal,
+.shipping,
+.tax,
+.TotalPrice {
+    display: flex;
+    justify-content: space-between;
+}
+
+.TotalPrice p {
+    font-weight: 600;
+    color: black;
+}
+
+.TotalPrice span {
+    font-weight: 650;
+}
+
+#placeOrder {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: black;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#placeOrder:hover {
+    background: #333;
+}
+
+.productBox {
+    display: flex;
+    justify-content: space-between;
+    gap: 19px;
+    padding: 10px 0px;
+}
+
+.productName {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#productDescr {
+    font-size: 12px;
+    color: #999;
+
+
+}
+
+.productBox img {
+    height: 80px;
+    border: 1px solid black;
+
+}
+
+/* ===============================
+   CHECKOUT RESPONSIVE
+=================================*/
+
+/* Tablets */
+@media (max-width: 992px) {
+
+    .checkOut-box {
+        width: 85%;
+        left: -200%;
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px 20px;
+    }
+
+    .checkOut-box.active {
+        left: 7%;
+    }
+
+    form {
+        max-width: 100%;
+    }
+
+}
+
+
+/* Small Tablets */
+@media (max-width: 768px) {
+
+    .checkOut-box {
+        width: 92%;
+        left: -200%;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .checkOut-box.active {
+        left: 4%;
+    }
+
+    .name-box {
+        flex-direction: column;
+        gap: 10px;
+        height: auto;
+    }
+
+    .city-state-postal {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* Mobile */
+@media (max-width: 576px) {
+
+    .checkOut-box {
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: -200%;
+        border-radius: 0;
+        overflow-y: auto;
+        flex-direction: column;
+        padding: 25px 15px;
+        gap: 100px;
+    }
+
+    .checkOut-box.active {
+        left: 0;
+    }
+
+    form {
+        max-width: 100%;
+    }
+
+    .name-box {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .name-box input {
+        padding: 5px;
+    }
+
+    .city-state-postal {
+        grid-template-columns: 1fr;
+        gap: 10px;
+
+    }
+
+    .city-state-postal input {
+        padding: 5px 12px;
+    }
+
+    .orderSummery {
+        width: 100%;
+    }
+
+}
+
+
+.order-box {
+    max-height: 300px;
+    overflow-y: auto;
+}
