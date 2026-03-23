@@ -163,7 +163,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 30px;
+    gap: 15px;
     border-top: 1px solid #999;
     padding: 21px 0px;
 }
@@ -718,6 +718,9 @@ form input {
     border: 1px solid black;
 
 }
+
+
+
 
 /* ===============================
    CHECKOUT RESPONSIVE

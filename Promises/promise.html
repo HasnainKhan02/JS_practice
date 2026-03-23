@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .users {
+        height: 80%;
+        width: 80%;
+        border: 2px solid black;
+        /* display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        align-content: center;
+        overflow: hidden; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .box {
+        height: 300px;
+        width: 200px;
+        border: 1px solid black;
+    }
+</style>
+
+<body>
+    <div class="users">
+        <div class="box user1"></div>
+        <div class="box user2"></div>
+        <div class="box user3"></div>
+        <div class="box user4"></div>
+        <div class="box user5"></div>
+        <div class="box user6"></div>
+    </div>
+</body>
+<script>
+    let boxes = document.querySelectorAll(".box");
+
+    async function getUsers() {
+        try {
+            let data = await fetch("https://randomuser.me/api/?results=5");
+            let response = await data.json();
+
+            response.results.forEach((user, index) => {
+                boxes[index].innerHTML = `
+    <img src="${user.picture.medium}" />
+    <h3>${user.name.title} ${user.name.first} ${user.name.last}</h3>
+    <h3>${user.location.country}</h3>
+    <p>${user.email}</p>
+  `;
+            });
+        }
+        catch (error) {
+            console.log("Error", error);
+
+        }
+    }
+
+    getUsers();
+</script>
+
+</html>

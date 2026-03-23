@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="formBox">
+        <div class="imgSide">
+            <div class="imgText">
+
+                <h2>Create Your Account</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente, fugit.</p>
+            </div>
+        </div>
+        <form action="">
+            <div class="hading">
+
+                <h2>Sign Up</h2>
+            </div>
+            <div class="inputs">
+                <input id="firstName" type="text" placeholder="First name">
+                <div class="error" id="fNameError"></div>
+
+                <input id="lastName" type="text" placeholder="Last name">
+                <div class="error" id="lNameError"></div>
+
+                <input id="email" type="email" placeholder="Email address">
+                <div class="error" id="emailError"></div>
+
+                <input id="password" type="password" placeholder="Password">
+                <div class="error" id="passwordError"></div>
+
+            </div>
+            <div class="conditions">
+                <input type="checkbox" id="terms">
+                <label for="terms">Accept Terms & Conditions</label>
+            </div>
+            <div class="error" id="termsError"></div>
+            <button class="joinBtn">Join us</button>
+            <div class="orRow">__________or__________</div>
+            <div class="googleLinks" style="cursor: pointer;">
+                Sign up with Google
+            </div>
+        </form>
+    </div>
+    <script>
+        let fName = document.querySelector("#firstName")
+        let lName = document.querySelector("#lastName")
+        let email = document.querySelector("#email")
+        let password = document.querySelector("#password")
+        let terms = document.querySelector("#terms")
+        let joinBtn = document.querySelector(".joinBtn")
+        let form = document.querySelector("form")
+        // //////////////////
+        // Error Selected
+        // /////////////////
+        let fNameError = document.querySelector("#fNameError")
+        let lNameError = document.querySelector("#lNameError")
+        let emailError = document.querySelector("#emailError")
+        let passwordError = document.querySelector("#passwordError")
+        let termsError = document.querySelector("#termsError")
+
+        joinBtn.addEventListener('click', (e) => {
+            e.preventDefault()
+
+            // Remove old error if exists
+            let fNameError = document.querySelector("#fNameError")
+            let lNameError = document.querySelector("#lNameError")
+            let emailError = document.querySelector("#emailError")
+            let passwordError = document.querySelector("#passwordError")
+            let termsError = document.querySelector("#termsError")
+
+
+            // Check First Name
+            if (fName.value.trim() === "") {
+                fName.style.border = "1px solid red"
+                fNameError.innerText = "Please enter First name"
+            } else {
+                fNameError.innerText = ""
+                fName.style.border = "1px solid green"
+            }
+
+            // Check Last Name
+            if (lName.value.trim() === "") {
+                lName.style.border = "1px solid red"
+                lNameError.innerText = "Please enter Last name"
+            } else {
+                lNameError.innerText = ""
+                lName.style.border = "1px solid #999"
+            }
+
+            if (email.value.trim() === "") {
+                email.style.border = "1px solid red"
+                emailError.innerText = "Please enter email"
+            } else {
+                emailError.innerText = ""
+                email.style.border = "1px solid green"
+            }
+
+            if (password.value.trim() === "") {
+                password.style.border = "1px solid red"
+                passwordError.innerText = "Please enter password"
+            } else {
+                passwordError.innerText = ""
+                password.style.border = "1px solid green"
+            }
+
+            // Check Terms
+            if (!terms.checked) {
+                termsError.innerText = "Accept terms first"
+            } else {
+                termsError.innerText = ""
+            }
+            if (fName.value.trim() && lName.value.trim() && password.value.trim() && email.value.trim() && terms.checked) {
+                alert("Form Submitted Successfully")
+
+                fName.value = ""
+                lName.value = ""
+                email.value = ""
+                password.value = ""
+                terms.checked = false
+
+                fName.style.border = "1px solid #999"
+                lName.style.border = "1px solid #999"
+                email.style.border = "1px solid #999"
+                password.style.border = "1px solid #999"
+
+            }
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color:  #f5f5f5; */
+    background-image: url(images/body2.jpg);
+    background-size: cover;
+}
+
+.formBox {
+    height: 80vh;
+    width: 55%;
+    border: 1px solid black;
+    display: flex;
+    border-radius: 17px;
+    background-color: #fff;
+}
+
+.imgSide {
+    height: 100%;
+    width: 50%;
+    object-fit: cover;
+    background-image: url(images/fromImg.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 17px;
+}
+
+.imgText {
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 62%;
+
+}
+
+form {
+    padding: 20px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.hading {
+    height: 55px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+input {
+    width: 23vw;
+    padding: 12px;
+    border: 1px solid #999;
+    border-radius: 8px;
+    outline: none;
+}
+
+input:focus {
+    border-color: black;
+}
+
+.conditions input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    /* pointer cursor on hover */
+    accent-color: black;
+    /* modern browsers can color the checkmark */
+}
+
+.conditions label {
+    cursor: pointer;
+    /* make clicking the text toggle checkbox */
+}
+
+.joinBtn {
+    width: 23vw;
+    padding: 12px;
+    border: none;
+    background-color: black;
+    color: #fff;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+.alert {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.error {
+    height: 12px;
+    color: red;
+    font-size: 12px;
+    width: 23vw;
+}
+
+@media screen and (max-width: 1024px) {
+    .formBox {
+        width: 70%;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .imgSide {
+        width: 100%;
+        height: 200px;
+        border-radius: 17px 17px 0 0;
+    }
+
+    form {
+        width: 100%;
+        padding: 20px;
+    }
+
+    input,
+    .joinBtn,
+    .error {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .formBox {
+        width: 85%;
+    }
+
+    .imgText {
+        width: 80%;
+        text-align: center;
+    }
+
+    input,
+    .joinBtn,
+    .error {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .formBox {
+        width: 95%;
+        border-radius: 10px;
+        height: 85vh;
+    }
+
+    .imgSide {
+        height: 150px;
+    }
+
+    input,
+    .joinBtn,
+    .error {
+        width: 95%;
+    }
+.inputs {
+    width: 90%;
+}
+    .imgText h2 {
+        font-size: 18px;
+    }
+
+    .imgText p {
+        font-size: 12px;
+    }
+}
