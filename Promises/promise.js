@@ -31,19 +31,19 @@
 //     console.log(err);
 //   });
 
-// async function getAllUsers() {
-//   try {
-//     let response = await fetch("https://jsoffnplaceholder.typicode.com/users");
-//     console.log(response);
-//     let data = await response.json();
-//     data.forEach((user) => {
-//       console.log("Name ", user.name , ": ","Phone ", user.phone , ": ", "City" , user.address);
-//     });
-//   } catch (error) {
-//     console.log("Error", error);
-//   }
-// }
-// getAllUsers();
+async function getAllUsers() {
+  try {
+    let response = await fetch("https://jsoffnplaceholder.typicode.com/users");
+    console.log(response);
+    let data = await response.json();
+    data.forEach((user) => {
+      console.log("Name ", user.name , ": ","Phone ", user.phone , ": ", "City" , user.address);
+    });
+  } catch (error) {
+    console.log("Error", error);
+  }
+}
+getAllUsers();
 
 // Promise = new Promise((resolve, reject) => {
 //   icecream = true;
