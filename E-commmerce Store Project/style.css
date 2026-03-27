@@ -1,0 +1,542 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* --- Navigation --- */
+nav {
+    font-family: "Montserrat", sans-serif;
+    height: 70px;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.5);
+    position: relative;
+    z-index: 100;
+}
+
+.logo {
+    color: green;
+    font-weight: bolder;
+    font-size: 2rem;
+}
+
+/* Checkbox Hack for Mobile Menu */
+#check {
+    display: none;
+}
+
+.checkbtn {
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+    /* Hidden on desktop */
+}
+
+.navLinks ul {
+    display: flex;
+    list-style: none;
+}
+
+.navLinks ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 12px;
+    font-weight: 450;
+}
+
+.searchBox {
+    position: relative;
+}
+
+.searchBox input {
+    padding: 10px 40px 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    background: #f4f4f4;
+}
+
+.searchBox i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.accountAndcart {
+    display: flex;
+    gap: 20px;
+}
+
+/* --- Hero Section & Banner --- */
+.heroSection {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.bannerImg {
+    width: 100%;
+    min-height: 450px;
+    background-image: url(images/hero2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    transition: background-image 1s ease-in-out;
+}
+
+/* --- Categories --- */
+.Catagories {
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.Catagories ul {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+}
+
+.Catagories button,
+.sortBtn {
+    padding: 8px 18px;
+    border: 1px solid black;
+    background: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.Catagories button {
+    background-color: #eee;
+    border: none;
+}
+
+/* --- Product Grid --- */
+.productContainer {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.productCard {
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px;
+    transition: transform 0.3s;
+}
+
+.productImgBox {
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.productImgBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.productInfoBox {
+    padding: 12px 0;
+}
+
+.cartBtn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #fff;
+    border: 1px solid black;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* --- MEDIA QUERIES --- */
+
+/* Tablet (Large Phones to Tablet) */
+@media (max-width: 1024px) {
+
+    nav,
+    .heroSection,
+    .Catagories,
+    .productContainer {
+        width: 90%;
+    }
+
+    .bannerImg {
+        min-height: 350px;
+    }
+}
+
+/* Mobile Menu & Layout (768px) */
+@media (max-width: 768px) {
+    .checkbtn {
+        display: block;
+    }
+
+    .navLinks {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #fff;
+        top: 70px;
+        left: -100%;
+        text-align: center;
+        transition: 0.4s;
+        z-index: 99;
+    }
+
+    #check:checked~.navLinks {
+        left: 0;
+    }
+
+    .navLinks ul {
+        display: block;
+        padding-top: 40px;
+    }
+
+    .navLinks ul li {
+        margin: 25px 0;
+    }
+
+    .searchBox {
+        display: none;
+    }
+
+    /* Hide search on small nav to save space */
+
+    .bannerImg {
+        min-height: 250px;
+    }
+
+    .Catagories {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/* Small Mobile (480px) */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .productContainer {
+        grid-template-columns: 1fr;
+        /* Single column */
+    }
+
+    .bannerImg {
+        min-height: 200px;
+        aspect-ratio: 16/9;
+    }
+
+    .Catagories ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* Single Product View */
+
+.productView {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    z-index: 999;
+}
+
+.productView.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.productView>div {
+    background: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    gap: 40px;
+    position: relative;
+}
+
+.leftSide {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    /* border: 1px solid green; */
+    /* padding-left: 160px; */
+
+}
+
+.leftSide img {
+    width: 393px;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.rightSide {
+    width: 40%;
+    /* border: 1px solid green; */
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    flex-direction: column;
+    justify-content: center;
+    height: 50vh;
+
+}
+
+.rightInfoPart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 120px;
+}
+
+.rightInfoPart .fa-star {
+    color: green;
+}
+
+.rightInfoPart p {
+    font-size: 14px;
+    color: #999;
+}
+
+.rightPrice p {
+    font-weight: bold;
+}
+
+/* Container for both the buttons and the text */
+.quantityWrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: sans-serif;
+}
+
+.itemBoxQuant {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2px;
+    font-family: sans-serif;
+
+}
+
+/* The pill-shaped button container */
+.rightQuantityPart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f3f4f6;
+    /* Light grey background */
+    padding: 8px 15px;
+    border-radius: 25px;
+    /* Makes it pill-shaped */
+    width: 120px;
+}
+
+.Quantity {
+    padding: 0px 4px;
+    width: 80px;
+    font-size: 6px;
+    border: 1px solid #999;
+    border-radius: 10px;
+    font-size: 13px;
+    background-color: transparent;
+}
+
+/* Individual + and - buttons */
+.qtyBtn {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qtyBtn:hover {
+    color: #000;
+}
+
+/* The number in the middle */
+.qtyValue {
+    font-weight: 600;
+    font-size: 16px;
+    color: #333;
+    padding: 0 10px;
+}
+
+/* Stock text styling */
+.stockText {
+    font-size: 12px;
+    line-height: 1.4;
+    color: #1a1a1a;
+}
+
+.highlight {
+    color: #d97706;
+    /* Orange color for the items left */
+    font-weight: bold;
+}
+
+.subText {
+    color: #666;
+    font-size: 11px;
+}
+
+.rightButtonsPart {
+    padding: 8px 0px;
+    display: flex;
+    gap: 15px;
+}
+
+.rightButtonsPart button {
+    padding: 5px 14px;
+    border-radius: 15px;
+    border: 1px solid green;
+    color: green;
+
+}
+
+.rightButtonsPart button:first-child {
+    background-color: rgb(2, 33, 2);
+    color: #fff;
+    padding: 5px 22px;
+}
+
+.fa-x {
+    position: absolute;
+    top: 12px;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 31px;
+    right: 35px;
+    font-size: 20px;
+}
+
+/* /////////////////// */
+/* Cart Css */
+/* ////////////////// */
+.CartLogo {
+    cursor: pointer;
+}
+
+.closeCart {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 18px;
+}
+
+.cartBox {
+    height: 90vh;
+    width: 30%;
+    border: 1px solid #999;
+    position: fixed;
+    top: 10px;
+    right: -500px;
+    /*  hide outside screen */
+    /* right: 120px; */
+    z-index: 100;
+    background-color: #fff;
+    transition: 0.3s ease;
+    border-radius: 8px;
+    overflow-y: scroll;
+}
+
+.cartBox.active {
+    right: 0;
+}
+
+.itemBox {
+    height: 130px;
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+
+}
+
+.imgBox {
+    height: 100px;
+    width: 110px;
+    /* border: 1px solid black; */
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.imgBox img {
+    height: 100px;
+    width: 110px;
+    object-fit: cover;
+}
+
+.itemInfoBox {
+    /* border: 2px solid red; */
+    width: 60%;
+    height: 115px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.itemInfoBox p {
+    font-size: 12px;
+}
+
+.TotalPrice {
+    padding: 12px 9px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    display: flex;
+    border-top: 2px solid black;
+    align-items: end;
+}
+
+.TotalPrice p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.cartItems {
+    padding-bottom: 37px;
+}
