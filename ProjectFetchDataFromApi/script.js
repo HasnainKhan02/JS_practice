@@ -7,7 +7,6 @@ async function getProducts() {
       let box = document.querySelector(".box");
       box.innerHTML += `
                 <div class="boxes">
-
                 <img src="${data.image}">
                 <h4>${data.title}</h4>
                 <span>$${data.price}</span>

@@ -79,10 +79,16 @@ document.addEventListener("click", (e) => {
   }
 });
 
+let count = 0;
+
 let AddToCart = document.querySelectorAll(".cartBtn");
 
 AddToCart.forEach((btn) => {
   btn.addEventListener("click", () => {
+    let countNumber = document.querySelector(".count");
+    count++;
+    countNumber.innerText = count;
+
     btn.style.background = "green";
 
     let box = btn.closest(".productCard");
@@ -110,12 +116,14 @@ AddToCart.forEach((btn) => {
                     <button class="qtyBtn plus">+</button>
                     </div>
                     <div><i class="fa-solid fa-trash removeBtn"></i></div>
+                    
             </div>
         </div>
     `;
 
     cartItems.appendChild(item);
-    CartBox.classList.add("active");
+    // CartBox.classList.add("active");
+    // Qty Buttons
     let decrBtn = item.querySelector(".minus");
     let incrBtn = item.querySelector(".plus");
     let valueCount = item.querySelector(".qtyValue");
@@ -135,7 +143,9 @@ AddToCart.forEach((btn) => {
     });
   });
 });
+// @@@@@@@@@@@@@@@@@@
 // Images Slider
+// @@@@@@@@@@@@@@@@@@
 let images = [
   "images/banners/banner1.jpg",
   "images/banners/banner2.jpg",
@@ -160,5 +170,3 @@ setInterval(() => {
 
   slider.style.backgroundImage = `url(${images[index]})`;
 }, 4000);
-
-// Qty Buttons
