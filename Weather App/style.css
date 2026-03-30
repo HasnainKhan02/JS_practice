@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    background: linear-gradient(to bottom, #5f9cff, #6e82a8);
+}
+
+/* Weather Card */
+.weather {
+    width: 90%;
+    max-width: 450px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    padding: 25px 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.weather:hover {
+    transform: scale(1.02);
+}
+
+/* Top Input */
+.top {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 8px 12px;
+    border-radius: 50px;
+}
+
+.input input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 16px;
+    color: #fff;
+    padding-left: 10px;
+}
+
+.input .icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.input .icon:hover {
+    transform: scale(1.1);
+}
+
+.input .icon img {
+    height: 20px;
+    width: 20px;
+}
+
+/* Center Content */
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.NameTime h1 {
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.unit {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.wthr {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.morning {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.IMG img {
+    width: 100px;
+    height: 100px;
+    margin: 10px 0;
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.col1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    font-size: 14px;
+}
+
+.col1 img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+    filter: invert(1);
+}
+
+/* Animations */
+.wthr, .unit {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+    .unit {
+        font-size: 40px;
+    }
+    .NameTime h1 {
+        font-size: 28px;
+    }
+    .IMG img {
+        width: 80px;
+        height: 80px;
+    }
+}
