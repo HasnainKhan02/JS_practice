@@ -17,7 +17,7 @@ async function GetAPiData(city) {
 
     document.querySelector(".city").innerHTML = response.name;
     document.querySelector(".unit").innerText =
-      Math.round(response.main.temp) + " °C";
+      Math.round(response.main.temp) + "°C";
     document.querySelector(".humidity").innerHTML =
       response.main.humidity + "%";
     document.querySelector(".wind").innerHTML = response.wind.speed + " km/h";
@@ -99,4 +99,3 @@ searchBox.addEventListener("keypress", (e) => {
 
 // ------------------- Default City -------------------
 GetAPiData("Swabi");
-

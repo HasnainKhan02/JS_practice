@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teriyaki Chicken Detail</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    :root {
+        --primary-red: #E91E63;
+        --text-dark: #1a1a1a;
+        --text-light: #888;
+        --bg-white: #ffffff;
+    }
+
+    body {
+        background-color: #f5f5f5;
+        display: flex;
+        justify-content: center;
+    }
+
+    .app-container {
+        width: 100%;
+        max-width: 414px;
+        /* Mobile width */
+        background: var(--bg-white);
+        min-height: 90vh;
+        position: relative;
+        overflow-x: hidden;
+        padding-bottom: 100px;
+        /* Space for fixed footer */
+    }
+
+    /* --- Header & Curve --- */
+    .header {
+        background-color: var(--primary-red);
+        height: 350px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .top-nav {
+        width: 100%;
+        padding: 20px;
+        color: white;
+        font-size: 20px;
+    }
+
+    .image-container {
+        z-index: 2;
+        margin-bottom: 20px;
+    }
+
+    .main-food-img {
+        width: 230px;
+        height: 230px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .curve {
+        position: absolute;
+        bottom: -2px;
+        width: 100%;
+        z-index: 1;
+    }
+
+    /* --- Content --- */
+    .content {
+        padding: 0 24px;
+        margin-top: -10px;
+        position: relative;
+        z-index: 3;
+    }
+
+    .title-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .title-row h1 {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--text-dark);
+    }
+
+    .subtitle {
+        color: var(--text-light);
+        font-size: 14px;
+    }
+
+    .heart-icon {
+        font-size: 24px;
+        color: var(--primary-red);
+        margin-top: 5px;
+    }
+
+    .pricing-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .stats {
+        display: flex;
+        gap: 12px;
+        color: var(--text-light);
+        font-size: 13px;
+    }
+
+    .stats i {
+        color: #FFD700;
+        /* Star color */
+    }
+
+    .price-container {
+        text-align: right;
+    }
+
+    .old-price {
+        display: block;
+        text-decoration: line-through;
+        color: var(--text-light);
+        font-size: 12px;
+    }
+
+    .current-price {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--primary-red);
+    }
+
+    .ingredients {
+        margin-top: 30px;
+    }
+
+    .ingredients h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .ingredients p {
+        font-size: 14px;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    /* --- Bottom Action Bar --- */
+    .action-bar {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        max-width: 414px;
+        background: white;
+        padding: 20px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .quantity-selector {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .qty-btn {
+        width: 35px;
+        height: 35px;
+        border-radius: 8px;
+        border: none;
+        background-color: var(--primary-red);
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .qty-value {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .add-to-cart {
+        background-color: var(--primary-red);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 25px;
+        font-size: 16px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
+    }
+</style>
+
+<body>
+
+    <div class="app-container">
+        <div class="show">
+            <!-- <header class="header">
+            <div class="top-nav">
+                <i class="fa-solid fa-arrow-left"></i>
+            </div>
+            <div class="image-container">
+                <img src="images/6687be9373ea3f1387f6b889710a4451e8227644.jpg" alt="Teriyaki Chicken"
+                    class="main-food-img">
+            </div>
+            <svg class="curve" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff" fill-opacity="1"
+                    d="M0,224L120,202.7C240,181,480,139,720,138.7C960,139,1200,181,1320,202.7L1440,224L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z">
+                </path>
+            </svg>
+        </header> -->
+
+            <main class="content">
+                <div class="title-row">
+                    <div>
+                        <h1>Teriyaki Chicken</h1>
+                        <p class="subtitle">with Broccoli</p>
+                    </div>
+                    <div class="heart-icon">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+                </div>
+
+                <div class="pricing-row">
+                    <div class="stats">
+                        <span class="rating"><i class="fa-solid fa-star"></i> 4, 9</span>
+                        <span class="distance"><i class="fa-solid fa-location-dot"></i> 1,2 km</span>
+                        <span class="time"><i class="fa-regular fa-clock"></i> 30 mins</span>
+                    </div>
+                    <div class="price-container">
+                        <span class="old-price">Rp 60.000</span>
+                        <span class="current-price">Rp 59.000</span>
+                    </div>
+                </div>
+
+                <section class="ingredients">
+                    <h3>Ingredients:</h3>
+                    <p>
+                        Chicken teriyaki is made with boneless chicken, fresh broccoli, and teriyaki sauce made from soy
+                        sauce, mirin, sake, and sugar. Additional ingredients include garlic, ginger, sesame oil, sesame
+                        seeds, and scallions for garnish.
+                    </p>
+                </section>
+            </main>
+
+            <footer class="action-bar">
+                <div class="quantity-selector">
+                    <button class="qty-btn">+</button>
+                    <span class="qty-value">2</span>
+                    <button class="qty-btn">-</button>
+                </div>
+                <button class="add-to-cart">
+                    Add to cart <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+            </footer>
+        </div>
+    </div>
+    <script>
+        document.querySelector(".fa-arrow-left").onclick = () => {
+            history.back();
+        };
+
+
+    </script>
+    <script src="script.js">
+        document.addEventListener("DOMContentLoaded", () => {
+            const product = JSON.parse(localStorage.getItem("selectedProduct"));
+
+            if (product) {
+                // Insert product data into page
+                document.querySelector(".main-food-img").src = product.img;
+                document.querySelector(".title-row h1").innerText = product.title;
+            }
+        });
+        let addToCart = document.querySelector(".add-to-cart");
+        addToCart.addEventListener("click", () => {
+            alert("Add to Cart Successfully");
+        });
+
+    </script>
+</body>
+
+</html>
